@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 *{
   -webkit-tap-highlight-color: transparent;
+  font-family: 'Bungee' , cursive !important;
 }
 
 
