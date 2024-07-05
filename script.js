@@ -6,7 +6,7 @@ const btnRestart = document.getElementById('restart-btn')
 const startContainer = document.getElementById('start-container')
 const gameContainer = document.getElementById('game-container')
 const endContainer = document.getElementById('end-container')
-
+const roundContainer = document.getElementById('round')
 
 
 const won = document.getElementById('won')
@@ -26,6 +26,8 @@ const balls = [
 let selectedBall = null;
 let movingInterval = null;
 const radius = 25;
+let round = 1;
+let time = 1000;
 
 function setInitialPositions() {
   const gameBound = gameArea.getBoundingClientRect();
@@ -121,7 +123,7 @@ function startMoving() {
 
   setTimeout(() => {
     stopMoving();
-  }, 1000);
+  }, time);
 }
 
 function stopMoving() {
@@ -140,13 +142,16 @@ balls.forEach(ball => {
       startMoving();
     } else {
       if (selectedBall === ball) {
+       
         endContainer.style.display = 'flex'
         gameContainer.style.display = 'none'
         won.style.display = 'block'
         loss.style.display = 'none'
         btnRestart.style.display = 'none'
         btnNext.style.display = 'block'
-      
+        
+        
+        
         setInitialPositions();
         
        // alert('You won!');
@@ -181,10 +186,15 @@ btnRestart.addEventListener('click',()=>{
   gameContainer.style.display = 'flex'
   endContainer.style.display = 'none'
   setInitialPositions();
+  round = 0 
+  time = 1000
 })
 
 btnNext.addEventListener('click',()=>{
+  round++
+  time = time*round
   gameContainer.style.display = 'flex'
   endContainer.style.display = 'none'
   setInitialPositions();
+  roundContainer.innerHTML = `round-${round}`
 })
