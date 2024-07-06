@@ -1,18 +1,14 @@
-const btnStart = document.getElementById('start-btn')
-const btnNext = document.getElementById('next-btn')
-const btnRestart = document.getElementById('restart-btn')
+const btnStart = document.getElementById('start-btn');
+const btnNext = document.getElementById('next-btn');
+const btnRestart = document.getElementById('restart-btn');
 
+const startContainer = document.getElementById('start-container');
+const gameContainer = document.getElementById('game-container');
+const endContainer = document.getElementById('end-container');
+const roundContainer = document.getElementById('round');
 
-const startContainer = document.getElementById('start-container')
-const gameContainer = document.getElementById('game-container')
-const endContainer = document.getElementById('end-container')
-const roundContainer = document.getElementById('round')
-
-
-const won = document.getElementById('won')
-const loss = document.getElementById('loss')
-
-
+const won = document.getElementById('won');
+const loss = document.getElementById('loss');
 
 const gameArea = document.getElementById('gameArea');
 const balls = [
@@ -38,7 +34,6 @@ function setInitialPositions() {
     ball.element.style.top = `${centerY}px`;
     ball.element.style.left = `${75 + (index - 1) * 55.0}px`;
   });
-  
 }
 
 function getRandomVelocity() {
@@ -73,7 +68,6 @@ function move() {
     ball.element.style.left = ballLeft + 'px';
   });
 
-  // Check for collisions between all balls
   for (let i = 0; i < balls.length; i++) {
     for (let j = i + 1; j < balls.length; j++) {
       checkCollision(balls[i], balls[j]);
@@ -135,66 +129,82 @@ function stopMoving() {
   });
 }
 
+function insertAd() {
+  const adContainer = document.getElementById('ad-container');
+  adContainer.innerHTML = '';
+  
+  const adScript = document.createElement('script');
+  adScript.type = 'text/javascript';
+  adScript.innerHTML = `
+    atOptions = {
+      'key' : '5a325ef4713d98f5a1c77c16db16924a',
+      'format' : 'iframe',
+      'height' : 250,
+      'width' : 300,
+      'params' : {}
+    };
+  `;
+  const invokeScript = document.createElement('script');
+  invokeScript.type = 'text/javascript';
+  invokeScript.src = '//www.topcreativeformat.com/5a325ef4713d98f5a1c77c16db16924a/invoke.js';
+  
+  adContainer.appendChild(adScript);
+  adContainer.appendChild(invokeScript);
+}
+
 balls.forEach(ball => {
   ball.element.addEventListener('click', () => {
     if (!selectedBall) {
       selectedBall = ball;
       startMoving();
     } else {
-      if (selectedBall === ball) {
-       
-        endContainer.style.display = 'flex'
-        gameContainer.style.display = 'none'
-        won.style.display = 'block'
-        loss.style.display = 'none'
-        btnRestart.style.display = 'none'
-        btnNext.style.display = 'block'
-        
-        
-        
-        setInitialPositions();
-        
-       // alert('You won!');
+      endContainer.style.display = 'flex';
+      gameContainer.style.display = 'none';
 
+      if (selectedBall === ball) {
+        won.style.display = 'block';
+        loss.style.display = 'none';
+        btnRestart.style.display = 'none';
+        
+        setTimeout(()=>{
+        btnNext.style.display = 'block';
+        },3000)
       } else {
+        won.style.display = 'none';
+        loss.style.display = 'block';
         
-        
-        endContainer.style.display = 'flex'
-        gameContainer.style.display = 'none'
-        won.style.display = 'none'
-        loss.style.displsy = 'block'
-        btnRestart.style.display = 'block'
-        btnNext.style.display = 'none'
-       // alert('Try again!');
-        setInitialPositions();
+        setTimeout(()=>{
+        btnRestart.style.display = 'block';
+        },3000)
+        btnNext.style.display = 'none';
       }
+      
+      insertAd();
       selectedBall = null;
     }
   });
 });
 
-
-
-
-startContainer.addEventListener('click',(e)=>{
-  gameContainer.style.display = 'flex'
-  startContainer.style.display = 'none'
+startContainer.addEventListener('click', () => {
+  gameContainer.style.display = 'flex';
+  startContainer.style.display = 'none';
   setInitialPositions();
-})
+});
 
-btnRestart.addEventListener('click',()=>{
-  gameContainer.style.display = 'flex'
-  endContainer.style.display = 'none'
+btnRestart.addEventListener('click', () => {
+  gameContainer.style.display = 'flex';
+  endContainer.style.display = 'none';
   setInitialPositions();
-  round = 0 
-  time = 1000
-})
+  round = 1;
+  time = 1000;
+  roundContainer.innerHTML = `round-${round}`;
+});
 
-btnNext.addEventListener('click',()=>{
-  round++
-  time = time*round
-  gameContainer.style.display = 'flex'
-  endContainer.style.display = 'none'
+btnNext.addEventListener('click', () => {
+  round++;
+  time *= round;
+  gameContainer.style.display = 'flex';
+  endContainer.style.display = 'none';
   setInitialPositions();
-  roundContainer.innerHTML = `round-${round}`
-})
+  roundContainer.innerHTML = `round-${round}`;
+});
