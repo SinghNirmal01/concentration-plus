@@ -185,7 +185,7 @@ balls.forEach(ball => {
   });
 });
 
-startContainer.addEventListener('click', () => {
+btnStart.addEventListener('click', () => {
   gameContainer.style.display = 'flex';
   startContainer.style.display = 'none';
   setInitialPositions();
@@ -202,7 +202,7 @@ btnRestart.addEventListener('click', () => {
 
 btnNext.addEventListener('click', () => {
   round++;
-  time *= round;
+  time = round*1000;
   gameContainer.style.display = 'flex';
   endContainer.style.display = 'none';
   setInitialPositions();
