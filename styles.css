@@ -4,101 +4,94 @@
   font-family: 'Bungee' , cursive !important;
 }
 
-
 body {
   background: black;
   color: #fff;
   font-family: 'Bungee' , cursive;
 }
 
-
-
-
-
 .container {
-     margin:auto; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #start-container {
-  height:80dvh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #414141;
-    border-radius: 15px;
-    padding: 20px;
-    margin-top:20%;
-    box-sizing: border-box;
-    width: 90%;
-    max-width: 500px;
+  height: 80dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #6b7dfd, #21d4fd);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20%;
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 500px;
 }
 
 #start-btn {
-    background-color: #28A678;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    /* font-size: 1.5em; */
-    margin-bottom: 10px;
-    width: 80%;
-    text-align: center;
-    margin-top: 50%;
+  background-color: #ff6f61;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  width: 80%;
+  text-align: center;
+  margin-top: 50%;
 }
 
 #rules {
-    width: 100%;
-    text-align: center;
-    color: #28A678;
-    background: #031940;
-    border-radius: 10px;
-    padding: 10px;
-    font-size: 0.7em;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  background: #031940;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 0.7em;
 }
 
 @media (min-width: 768px) {
-    #start-container {
-        height: auto;
-    }
+  #start-container {
+    height: auto;
+  }
 
-    #start-btn {
-        font-size: 1.2em;
-    }
+  #start-btn {
+    font-size: 1.2em;
+  }
 
-    #rules {
-        font-size: 0.9em;
-    }
-}
-#game-container{
-  display :none;
+  #rules {
+    font-size: 0.9em;
+  }
 }
 
+#game-container {
+  display: none;
+}
 
 #gameArea {
   position: relative;
   width: 90%;
   height: 80dvh;
-  background: #525252;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   border-radius: 15px;
   margin: auto;
   margin-top: 20%;
-  
 }
-#round{
-  position: absolute ;
-  background: red;
+
+#round {
+  position: absolute;
+  background: #ff6f61;
   z-index: 10;
   padding: 2.5%;
-  border-radius:10px;
+  border-radius: 10px;
   font-size: 1.5em;
-  top:0%;
+  top: 0%;
 }
+
 .ball {
   position: absolute;
   width: 50px;
@@ -107,86 +100,78 @@ body {
   border-radius: 50%;
 }
 
-/* #ballOne {
-  background-color: blue;
+#ballOne {
+  background-color: #6b7dfd;
 }
 
 #ballTwo {
-  background: green;
+  background-color: #21d4fd;
 }
 
 #ballThree {
-  background: yellow;
+  background-color: #ff9a9e;
 }
 
 #ballFour {
-  background: orange ;
+  background-color: #fad0c4;
 }
 
 #ballFive {
-  background: purple;
+  background-color: #ff6f61;
 }
- */
+
 .moving {
-      animation :color 1s infinite;
+  animation: color 1s infinite;
 }
 
-
-#end-container{
-  width : 90%;
-  height :90dvh;
-  background: #5B5B5B;
+#end-container {
+  width: 90%;
+  height: 90dvh;
+  background: #6b7dfd;
   border-radius: 15px;
-  display :flex;
-  margin:auto;
-  
-
+  display: flex;
+  margin: auto;
 }
-.result{
-  background: #045A50;
+
+.result {
+  background: #21d4fd;
   padding: 5%;
   border-radius: 15px;
   font-size: 3em;
-  
   display: flex;
-  
-  align-items: center
+  align-items: center;
 }
 
-
-.btn{
+.btn {
   padding: 5%;
   font-size: 2.5em;
-  background: #5A0404;
+  background: #ff6f61;
   border-radius: 10px;
 }
 
-@keyframes color{
-  0%{background: red ;}
-  33%{background: green;}
-  66%{background: blue;}
-  100%{background: red;}
+@keyframes color {
+  0% { background: #6b7dfd; }
+  33% { background: #21d4fd; }
+  66% { background: #ff9a9e; }
+  100% { background: #6b7dfd; }
 }
 
-
-
-
-#end-container{
-  display:none;
-}
-#loss{
-  display:none;
+#end-container {
+  display: none;
 }
 
-#next-btn{
-  display:none;
+#loss {
+  display: none;
 }
 
-#restart-btn{
-  display:block;
+#next-btn {
+  display: none;
 }
 
+#restart-btn {
+  display: block;
+}
 
-#result{
-  width:90%;
+#result {
+  width: 90%;
 }
