@@ -100,7 +100,7 @@ body {
   border-radius: 50%;
 }
 
-#ballOne {
+/*#ballOne {
   background-color: #6b7dfd;
 }
 
@@ -119,7 +119,7 @@ body {
 #ballFive {
   background-color: #ff6f61;
 }
-
+*/
 .moving {
   animation: color 1s infinite;
 }
@@ -150,9 +150,9 @@ body {
 }
 
 @keyframes color {
-  0% { background: #6b7dfd; }
-  33% { background: #21d4fd; }
-  66% { background: #ff9a9e; }
+  0% { background: #6b7dfd;  }
+  33% { background: #21d4fd;  }
+  66% { background: #ff9a9e;  }
   100% { background: #6b7dfd; }
 }
 
