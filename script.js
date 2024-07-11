@@ -189,6 +189,8 @@ btnStart.addEventListener('click', () => {
   gameContainer.style.display = 'flex';
   startContainer.style.display = 'none';
   setInitialPositions();
+  btnNext.style.display = 'none'
+  btnRestart.style.display = 'none'
 });
 
 btnRestart.addEventListener('click', () => {
@@ -198,6 +200,8 @@ btnRestart.addEventListener('click', () => {
   round = 1;
   time = 1000;
   roundContainer.innerHTML = `round-${round}`;
+  btnNext.style.display = 'none'
+  btnRestart.style.display = 'none'
 });
 
 btnNext.addEventListener('click', () => {
@@ -207,4 +211,6 @@ btnNext.addEventListener('click', () => {
   endContainer.style.display = 'none';
   setInitialPositions();
   roundContainer.innerHTML = `round-${round}`;
+  btnNext.style.display = 'none'
+  btnRestart.style.display = 'none'
 });
